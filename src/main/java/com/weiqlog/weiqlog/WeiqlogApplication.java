@@ -3,6 +3,7 @@ package com.weiqlog.weiqlog;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.MediaType;
 import org.springframework.integration.dsl.IntegrationFlow;
@@ -23,6 +24,7 @@ import java.util.concurrent.ConcurrentHashMap;
 
 @SpringBootApplication
 @RestController
+@EnableConfigurationProperties(DataSourcePropConfig.class)
 public class WeiqlogApplication {
 
     private final Map<String, SseEmitter> sses = new ConcurrentHashMap<>();
